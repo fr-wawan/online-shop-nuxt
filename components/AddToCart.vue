@@ -9,7 +9,6 @@
   </div>
 </template>
 <script setup>
-import { useToast } from "vue-toastification";
 const props = defineProps({
   product: {
     type: Object,
