@@ -18,7 +18,17 @@ export default defineNuxtConfig({
     },
   },
   css: ["@/assets/css/style.css"],
-  modules: ["@pinia/nuxt", "nuxt-icon", "@vueuse/nuxt"],
+  modules: ["@pinia/nuxt", "nuxt-icon", "@vueuse/nuxt", "@vite-pwa/nuxt"],
+  pwa: {
+    manifest: {
+      name: "Toko AAA",
+      short_name: "Toko AAA",
+      description: "Toko AAA adalah toko terbaik",
+    },
+    workbox: {
+      navigateFallback: "/",
+    },
+  },
   pinia: {
     autoImports: [
       "defineStore",
