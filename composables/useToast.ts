@@ -1,6 +1,5 @@
 import * as pkg from "vue-toastification";
-
+const { useToast } = pkg;
 export default function () {
-  const { useToast } = pkg;
   return useToast();
 }
