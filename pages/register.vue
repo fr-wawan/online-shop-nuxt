@@ -99,8 +99,8 @@ definePageMeta({
   middleware: "guest",
 });
 const { register } = useAuthStore();
+const { $toast } = useNuxtApp();
 
-const toast = useToast();
 let userData = reactive({
   first_name: "",
   last_name: "",
@@ -114,7 +114,7 @@ let validation = ref([]);
 async function handleRegister() {
   const error = await register(userData)
     .then(() => {
-      toast.success("Successfully login");
+      $toast.success("Successfully login");
       navigateTo("/profile");
     })
     .catch((error) => {

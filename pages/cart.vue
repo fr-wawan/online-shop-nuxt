@@ -87,12 +87,12 @@ const { getCart, deleteCart } = useCartStore();
 const { carts, cartTotal, isLoading } = storeToRefs(useCartStore());
 getCart();
 
-const toast = useToast();
+const { $toast } = useNuxtApp();
 async function handleDeleteCart(cart) {
   try {
     await deleteCart(cart);
 
-    toast.success("Removed From Cart");
+    $toast.success("Removed From Cart");
   } catch (error) {
     console.log(error);
   }

@@ -22,7 +22,7 @@ const props = defineProps({
 
 const { token } = storeToRefs(useAuthStore());
 const { storeCart } = useCartStore();
-const toast = useToast();
+const { $toast } = useNuxtApp();
 
 async function addToCart(product) {
   if (token.value) {
@@ -33,7 +33,7 @@ async function addToCart(product) {
 
     await storeCart(formData)
       .then(() => {
-        toast.success("Success");
+        $toast.success("Success");
       })
       .catch((error) => {
         console.log(error);

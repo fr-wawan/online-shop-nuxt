@@ -97,7 +97,7 @@ const userPassword = reactive({
   password_confirmation: "",
 });
 
-const toast = useToast();
+const { $toast } = useNuxtApp();
 let validation = ref([]);
 
 const imageAvatar = ref(null);
@@ -109,7 +109,7 @@ function onFileChange(e) {
     e.target.value = "";
     imageAvatar.value = null;
 
-    toast.error("Type must be a images");
+    $toast.error("Type must be a images");
   }
 }
 
@@ -129,7 +129,7 @@ async function handleUpdateProfile() {
 
   await updateProfile(formData)
     .then(() => {
-      toast.success("Profile Successfully Updated");
+      $toast.success("Profile Successfully Updated");
     })
     .catch((error) => {
       validation.value = error;
@@ -139,7 +139,7 @@ async function handleUpdateProfile() {
 async function handleUpdatePassword() {
   const error = await updatePassword(userPassword)
     .then(() => {
-      toast.success("Password Successfully Updated");
+      $toast.success("Password Successfully Updated");
     })
     .catch((error) => {
       validation.value = error;

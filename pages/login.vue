@@ -86,14 +86,13 @@ let userData = reactive({
   password: "",
 });
 
-const toast = useToast();
-
+const { $toast } = useNuxtApp();
 let validation = ref([]);
 
 async function handleLogin() {
   await login(userData)
     .then(() => {
-      toast.success("Successfully login");
+      $toast.success("Successfully login");
       navigateTo("/profile");
     })
     .catch((error) => {

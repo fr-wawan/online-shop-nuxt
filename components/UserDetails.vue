@@ -71,21 +71,21 @@
 
 <script setup>
 const { order, isLoading } = storeToRefs(useOrderStore());
-const toast = useToast();
+const { $toast } = useNuxtApp();
 
 function midtransPayment(snapToken) {
   window.snap.pay(snapToken, {
     onSuccess: function () {
       navigateTo("/order");
-      toast.success("Success!");
+      $toast.success("Success!");
     },
     onPending: function () {
       navigateTo("/order");
-      toast.error("Pending!");
+      $toast.error("Pending!");
     },
     onError: function () {
       navigateTo("/order");
-      toast.error("Error!");
+      $toast.error("Error!");
     },
   });
 }

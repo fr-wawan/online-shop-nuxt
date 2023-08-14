@@ -1,6 +1,6 @@
 <template>
   <Hero>
-    <h1 class="text-5xl font-semibold">Product Details</h1>
+    <h1 class="text-5xl text-center font-semibold">Product Details</h1>
     <p class="text-gray-400 mt-5 flex items-center justify-center">
       Home
       <img src="/images/greater-than.png" alt="" width="30" />
@@ -19,7 +19,7 @@
           <p
             class="font-bold text-xl mb-3 text-gray-500 border-b pb-3 border-b-gray-200"
           >
-            ${{ product.price }}/KG
+            {{ useFormatPrice(product.price) }}/KG
           </p>
           <p
             class="border-b pb-3 border-b-gray-200"
